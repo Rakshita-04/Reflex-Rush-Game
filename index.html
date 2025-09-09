@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflex Rush ⚡</title>
+    <meta name="description" content="Reflex Rush - A fast-paced reflex mini game. Test your speed, keep your combo, and climb the leaderboard! ⚡" />
+    <meta property="og:title" content="Reflex Rush ⚡" />
+    <meta property="og:description" content="A fun reflex game built with React + Tailwind. Can you beat the leaderboard?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at 20% 30%, rgba(167,139,250,0.15), transparent 70%),
+                    radial-gradient(circle at 80% 20%, rgba(244,114,182,0.15), transparent 70%),
+                    #0f0f1a;
+        color: white;
+        min-height: 100vh;
+      }
+
+      /* Simple loading screen */
+      #loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        color: #a78bfa;
+      }
+
+      .dot {
+        animation: blink 1.2s infinite;
+      }
+      .dot:nth-child(2) { animation-delay: 0.2s; }
+      .dot:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes blink {
+        0%, 80%, 100% { opacity: 0; }
+        40% { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading screen until React takes over -->
+    <div id="loading">
+      Loading Reflex Rush<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+    </div>
+
+    <!-- React root -->
+    <div id="root" style="display:none;"></div>
+
+    <script type="module">
+      // Hide loading once React mounts
+      const rootEl = document.getElementById('root');
+      const loadingEl = document.getElementById('loading');
+      const observer = new MutationObserver(() => {
+        if (rootEl.innerHTML.trim() !== '') {
+          loadingEl.style.display = 'none';
+          rootEl.style.display = 'block';
+          observer.disconnect();
+        }
+      });
+      observer.observe(rootEl, { childList: true });
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

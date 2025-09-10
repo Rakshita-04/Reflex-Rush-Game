@@ -70,32 +70,6 @@ npm run preview
 - **Combo Multiplier**: 2x, 3x, 4x, 5x for consecutive hits
 - **Bonus**: Higher combos = higher scores
 
-## 📁 Project Structure
-
-\`\`\`
-reflex-rush/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │   └── ProtectedRoute.jsx
-│   ├── contexts/
-│   │   └── AuthContext.jsx
-│   ├── pages/
-│   │   ├── Game.jsx
-│   │   ├── LeaderboardPage.jsx
-│   │   ├── HowToPlayPage.jsx
-│   │   ├── Login.jsx
-│   │   └── Signup.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-└── README.md
-\`\`\`
-
 ## 🛠️ Technologies Used
 
 - **React 18** - Frontend framework
@@ -105,34 +79,6 @@ reflex-rush/
 - **Lucide React** - Icon library
 - **Local Storage** - Data persistence
 
-## 🔧 Troubleshooting
-
-### Common Issues
-
-1. **Dependencies not installing**
-   \`\`\`bash
-   # Delete node_modules and package-lock.json
-   rm -rf node_modules package-lock.json  # Linux/Mac
-   # OR
-   Remove-Item -Recurse -Force node_modules  # Windows PowerShell
-   
-   # Reinstall
-   npm install
-   \`\`\`
-
-2. **Port already in use**
-   - Vite will automatically use the next available port
-   - Or specify a different port: `npm run dev -- --port 3000`
-
-3. **Game timer issues**
-   - Check browser console (F12) for debug logs
-   - Ensure JavaScript is enabled
-   - Try refreshing the page
-
-4. **Authentication not working**
-   - Any email and password (6+ characters) will work
-   - Check browser console for error messages
-   - Clear browser storage if needed
 
 ### Browser Compatibility
 
@@ -175,6 +121,37 @@ The project uses TailwindCSS. Modify styles in:
 - [ ] User profiles and statistics
 - [ ] Social features and sharing
 
----
 
 **Enjoy playing Reflex Rush! ⚡**
+
+## 📁 Project Structure
+
+<details>
+<summary>Click to expand 📁</summary>
+  
+```plaintext
+reflex-rush/
+├─ public/
+│  └─ mock-leaderboard.json
+│
+├─ src/
+│  ├─ main.jsx
+│  ├─ App.jsx
+│  ├─ components/
+│  │  ├─ Navbar.jsx
+│  │  └─ Footer.jsx
+│  └─ pages/
+│     ├─ Game.jsx
+│     ├─ HowToPlayPage.jsx
+│     ├─ LeaderboardPage.jsx
+│     ├─ Login.jsx
+│     └─ Signup.jsx
+│
+├─ .gitignore
+├─ index.html
+├─ package.json
+├─ tailwind.config.js
+└─ vite.config.js
+
+```plaintext
+
